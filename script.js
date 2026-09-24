@@ -1,313 +1,256 @@
-/* =========================================
-   ALBAN SHIBA WEBSITE
-   JAVASCRIPT
-========================================= */
+/* =========================================================
+   ALBAN SHIBA — WEBSITE JAVASCRIPT
+   ========================================================= */
 
 
-/* =========================================
-   LOADER
-========================================= */
+/* LOADER */
 
-window.addEventListener("load", () => {
+window.addEventListener("load", function () {
 
-    const loader = document.querySelector(".loader");
+    const loader = document.getElementById("loader");
 
-    setTimeout(() => {
-
+    setTimeout(function () {
         loader.classList.add("hidden");
-
     }, 500);
 
 });
 
 
-/* =========================================
-   HEADER SCROLL
-========================================= */
+/* HEADER SCROLL */
 
 const header = document.getElementById("header");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll", function () {
 
-    if (window.scrollY > 50) {
-
+    if (window.scrollY > 60) {
         header.classList.add("scrolled");
-
     } else {
-
         header.classList.remove("scrolled");
-
     }
 
 });
 
 
-/* =========================================
-   MOBILE MENU
-========================================= */
+/* MOBILE MENU */
 
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
-menuToggle.addEventListener("click", () => {
+menuToggle.addEventListener("click", function () {
 
-    nav.classList.toggle("active");
+    nav.classList.toggle("open");
+
+    const icon = menuToggle.querySelector("i");
+
+    if (nav.classList.contains("open")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    } else {
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
 
 });
 
 
-/* CLOSE MOBILE MENU */
+/* CLOSE MOBILE MENU AFTER CLICK */
 
-document.querySelectorAll(".nav a").forEach(link => {
+document.querySelectorAll(".nav-link").forEach(function (link) {
 
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function () {
 
-        nav.classList.remove("active");
+        nav.classList.remove("open");
+
+        const icon = menuToggle.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
 
     });
 
 });
 
 
-/* =========================================
-   COUNTERS
-========================================= */
+/* COUNTERS */
 
 const counters = document.querySelectorAll(".counter");
 
-const counterObserver = new IntersectionObserver(
+const counterObserver = new IntersectionObserver(function (entries, observer) {
 
-    entries => {
+    entries.forEach(function (entry) {
 
-        entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
 
-            if (!entry.isIntersecting) return;
+        const counter = entry.target;
+        const target = Number(counter.dataset.target);
 
-            const counter = entry.target;
+        let current = 0;
 
-            const target = Number(
-                counter.getAttribute("data-target")
-            );
+        const duration = 1200;
+        const stepTime = Math.max(20, Math.floor(duration / target));
 
-            let current = 0;
+        const timer = setInterval(function () {
 
-            const duration = 1200;
+            current++;
 
-            const startTime = performance.now();
+            counter.textContent = current;
 
-            function updateCounter(currentTime) {
-
-                const elapsed = currentTime - startTime;
-
-                const progress = Math.min(
-                    elapsed / duration,
-                    1
-                );
-
-                current = Math.floor(
-                    progress * target
-                );
-
-                counter.textContent = current;
-
-                if (progress < 1) {
-
-                    requestAnimationFrame(updateCounter);
-
-                } else {
-
-                    counter.textContent = target;
-
-                }
-
+            if (current >= target) {
+                clearInterval(timer);
             }
 
-            requestAnimationFrame(updateCounter);
+        }, stepTime);
 
-            counterObserver.unobserve(counter);
+        observer.unobserve(counter);
 
-        });
+    });
 
-    },
-
-    {
-        threshold: 0.5
-    }
-
-);
-
-counters.forEach(counter => {
-
-    counterObserver.observe(counter);
-
+}, {
+    threshold: 0.5
 });
 
 
-/* =========================================
-   SCROLL REVEAL
-========================================= */
+counters.forEach(function (counter) {
+    counterObserver.observe(counter);
+});
+
+
+/* SCROLL REVEAL */
 
 const revealElements = document.querySelectorAll(
-
-    ".section-heading, " +
-    ".profile-text, " +
-    ".profile-card, " +
-    ".stat-box, " +
-    ".timeline-item, " +
-    ".international-card, " +
-    ".video-card, " +
-    ".gallery-placeholder, " +
-    ".contact-grid"
-
+    ".section-heading, .profile-text, .profile-data, .career-item, .international-card, .honour-card, .video-card, .gallery-item, .contact-item"
 );
 
-revealElements.forEach(element => {
-
-    element.style.opacity = "0";
-
-    element.style.transform = "translateY(30px)";
-
-    element.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
-
+revealElements.forEach(function (element) {
+    element.classList.add("reveal");
 });
 
 
-const revealObserver = new IntersectionObserver(
+const revealObserver = new IntersectionObserver(function (entries, observer) {
 
-    entries => {
+    entries.forEach(function (entry) {
 
-        entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
 
-            if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
 
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform =
-                "translateY(0)";
-
-            revealObserver.unobserve(entry.target);
-
-        });
-
-    },
-
-    {
-        threshold: 0.15
-    }
-
-);
-
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* =========================================
-   BACK TO TOP
-========================================= */
-
-const backTop = document.getElementById("backTop");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 600) {
-
-        backTop.classList.add("visible");
-
-    } else {
-
-        backTop.classList.remove("visible");
-
-    }
-
-});
-
-
-backTop.addEventListener("click", () => {
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
+        observer.unobserve(entry.target);
 
     });
 
+}, {
+    threshold: 0.08
 });
 
 
-/* =========================================
-   ACTIVE NAVIGATION
-========================================= */
+revealElements.forEach(function (element) {
+    revealObserver.observe(element);
+});
+
+
+/* ACTIVE NAV */
 
 const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
 
-const navLinks = document.querySelectorAll(".nav a");
+window.addEventListener("scroll", function () {
 
-const activeObserver = new IntersectionObserver(
+    let currentSection = "";
 
-    entries => {
+    sections.forEach(function (section) {
 
-        entries.forEach(entry => {
+        const sectionTop = section.offsetTop - 180;
+        const sectionHeight = section.offsetHeight;
 
-            if (!entry.isIntersecting) return;
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            currentSection = section.getAttribute("id");
+        }
 
-            navLinks.forEach(link => {
-
-                link.classList.remove("active");
-
-            });
-
-            const activeLink =
-                document.querySelector(
-                    `.nav a[href="#${entry.target.id}"]`
-                );
-
-            if (activeLink) {
-
-                activeLink.classList.add("active");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold: 0.4
-    }
-
-);
+    });
 
 
-sections.forEach(section => {
+    navLinks.forEach(function (link) {
 
-    activeObserver.observe(section);
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") === "#" + currentSection
+        ) {
+            link.classList.add("active");
+        }
+
+    });
 
 });
 
 
-/* =========================================
-   VIDEO HOVER EFFECT
-========================================= */
+/* BACK TO TOP */
 
-const videoCards = document.querySelectorAll(".video-card");
+const backToTop = document.getElementById("backToTop");
 
-videoCards.forEach(card => {
+window.addEventListener("scroll", function () {
 
-    card.addEventListener("mouseenter", () => {
+    if (window.scrollY > 500) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
 
-        card.style.transform = "translateY(-8px)";
+});
+
+
+backToTop.addEventListener("click", function () {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+/* CURRENT YEAR */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+
+/* IMAGE ERROR HANDLING */
+
+document.querySelectorAll("img").forEach(function (image) {
+
+    image.addEventListener("error", function () {
+
+        image.style.display = "none";
 
     });
 
-    card.addEventListener("mouseleave", () => {
+});
 
-        card.style.transform = "translateY(0)";
+
+/* SMOOTH SCROLL */
+
+document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+
+    anchor.addEventListener("click", function (event) {
+
+        const targetId = this.getAttribute("href");
+
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (!target) return;
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
     });
 
