@@ -1,172 +1,212 @@
 /* =========================================================
-   ALBAN SHIBA — WEBSITE JAVASCRIPT
+   ALBAN SHIBA — FINAL JAVASCRIPT
    ========================================================= */
 
+document.documentElement.classList.add("js-ready");
 
-/* LOADER */
+/* =========================
+   LOADER
+========================= */
 
 window.addEventListener("load", function () {
 
     const loader = document.getElementById("loader");
 
-    setTimeout(function () {
-        loader.classList.add("hidden");
-    }, 500);
-
-});
-
-
-/* HEADER SCROLL */
-
-const header = document.getElementById("header");
-
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 60) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
+    if (loader) {
+        setTimeout(function () {
+            loader.classList.add("hidden");
+        }, 500);
     }
 
 });
 
 
-/* MOBILE MENU */
+/* =========================
+   HEADER
+========================= */
 
-const menuToggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
+const header = document.getElementById("site-header");
 
-menuToggle.addEventListener("click", function () {
+if (header) {
 
-    nav.classList.toggle("open");
+    window.addEventListener("scroll", function () {
 
-    const icon = menuToggle.querySelector("i");
+        if (window.scrollY > 60) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
 
-    if (nav.classList.contains("open")) {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-xmark");
-    } else {
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
-    }
+    });
 
-});
+}
 
 
-/* CLOSE MOBILE MENU AFTER CLICK */
+/* =========================
+   MOBILE MENU
+========================= */
 
-document.querySelectorAll(".nav-link").forEach(function (link) {
+const menuToggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("main-nav");
 
-    link.addEventListener("click", function () {
+if (menuToggle && nav) {
 
-        nav.classList.remove("open");
+    menuToggle.addEventListener("click", function () {
+
+        nav.classList.toggle("open");
 
         const icon = menuToggle.querySelector("i");
 
-        icon.classList.remove("fa-xmark");
-        icon.classList.add("fa-bars");
+        if (icon) {
 
-    });
-
-});
-
-
-/* COUNTERS */
-
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver(function (entries, observer) {
-
-    entries.forEach(function (entry) {
-
-        if (!entry.isIntersecting) return;
-
-        const counter = entry.target;
-        const target = Number(counter.dataset.target);
-
-        let current = 0;
-
-        const duration = 1200;
-        const stepTime = Math.max(20, Math.floor(duration / target));
-
-        const timer = setInterval(function () {
-
-            current++;
-
-            counter.textContent = current;
-
-            if (current >= target) {
-                clearInterval(timer);
+            if (nav.classList.contains("open")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
             }
 
-        }, stepTime);
-
-        observer.unobserve(counter);
+        }
 
     });
 
-}, {
-    threshold: 0.5
-});
 
+    document.querySelectorAll(".nav-link").forEach(function (link) {
 
-counters.forEach(function (counter) {
-    counterObserver.observe(counter);
-});
+        link.addEventListener("click", function () {
 
+            nav.classList.remove("open");
 
-/* SCROLL REVEAL */
+            const icon = menuToggle.querySelector("i");
 
-const revealElements = document.querySelectorAll(
-    ".section-heading, .profile-text, .profile-data, .career-item, .international-card, .honour-card, .video-card, .gallery-item, .contact-item"
-);
+            if (icon) {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
 
-revealElements.forEach(function (element) {
-    element.classList.add("reveal");
-});
-
-
-const revealObserver = new IntersectionObserver(function (entries, observer) {
-
-    entries.forEach(function (entry) {
-
-        if (!entry.isIntersecting) return;
-
-        entry.target.classList.add("visible");
-
-        observer.unobserve(entry.target);
+        });
 
     });
 
-}, {
-    threshold: 0.08
-});
+}
 
 
-revealElements.forEach(function (element) {
-    revealObserver.observe(element);
-});
+/* =========================
+   COUNTERS
+========================= */
+
+const counters = document.querySelectorAll("[data-count]");
+
+if ("IntersectionObserver" in window) {
+
+    const counterObserver = new IntersectionObserver(function (entries, observer) {
+
+        entries.forEach(function (entry) {
+
+            if (!entry.isIntersecting) return;
+
+            const counter = entry.target;
+            const target = Number(counter.dataset.count) || 0;
+
+            let current = 0;
+            const duration = 1000;
+            const stepTime = Math.max(30, Math.floor(duration / target));
+
+            const timer = setInterval(function () {
+
+                current++;
+
+                counter.textContent = current;
+
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                }
+
+            }, stepTime);
+
+            observer.unobserve(counter);
+
+        });
+
+    }, {
+        threshold: 0.5
+    });
 
 
-/* ACTIVE NAV */
+    counters.forEach(function (counter) {
+        counterObserver.observe(counter);
+    });
+
+} else {
+
+    counters.forEach(function (counter) {
+        counter.textContent = counter.dataset.count;
+    });
+
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+
+        entries.forEach(function (entry) {
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+        });
+
+    }, {
+        threshold: 0.08
+    });
+
+
+    revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+    });
+
+} else {
+
+    revealElements.forEach(function (element) {
+        element.classList.add("visible");
+    });
+
+}
+
+
+/* =========================
+   ACTIVE NAV
+========================= */
 
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll(".nav-link");
 
-window.addEventListener("scroll", function () {
+function updateActiveNavigation() {
 
     let currentSection = "";
 
     sections.forEach(function (section) {
 
-        const sectionTop = section.offsetTop - 180;
-        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 200;
+        const sectionBottom = sectionTop + section.offsetHeight;
 
         if (
             window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight
+            window.scrollY < sectionBottom
         ) {
-            currentSection = section.getAttribute("id");
+            currentSection = section.id;
         }
 
     });
@@ -184,54 +224,73 @@ window.addEventListener("scroll", function () {
 
     });
 
-});
+}
+
+window.addEventListener("scroll", updateActiveNavigation);
+
+window.addEventListener("load", updateActiveNavigation);
 
 
-/* BACK TO TOP */
+/* =========================
+   BACK TO TOP
+========================= */
 
 const backToTop = document.getElementById("backToTop");
 
-window.addEventListener("scroll", function () {
+if (backToTop) {
 
-    if (window.scrollY > 500) {
-        backToTop.classList.add("show");
-    } else {
-        backToTop.classList.remove("show");
-    }
+    window.addEventListener("scroll", function () {
 
-});
+        if (window.scrollY > 500) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
 
-
-backToTop.addEventListener("click", function () {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
 
-});
+
+    backToTop.addEventListener("click", function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
 
 
-/* CURRENT YEAR */
+/* =========================
+   CURRENT YEAR
+========================= */
 
-document.getElementById("currentYear").textContent =
-    new Date().getFullYear();
+const currentYear = document.getElementById("currentYear");
+
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
 
 
-/* IMAGE ERROR HANDLING */
+/* =========================
+   IMAGE ERROR HANDLING
+========================= */
 
 document.querySelectorAll("img").forEach(function (image) {
 
     image.addEventListener("error", function () {
 
-        image.style.display = "none";
+        image.style.opacity = "0";
 
     });
 
 });
 
 
-/* SMOOTH SCROLL */
+/* =========================
+   SMOOTH SCROLL
+========================= */
 
 document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
@@ -239,7 +298,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 
         const targetId = this.getAttribute("href");
 
-        if (targetId === "#") return;
+        if (!targetId || targetId === "#") return;
 
         const target = document.querySelector(targetId);
 
