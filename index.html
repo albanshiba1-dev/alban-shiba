@@ -8,99 +8,88 @@
     <title>Alban Shiba | Albanian Goalkeeper</title>
 
     <meta name="description"
-          content="Alban Shiba | Albanian goalkeeper from Tirana with experience in futsal, football, 5x5, 9x9 and beach soccer.">
+          content="Alban Shiba, Albanian goalkeeper from Tirana with experience in futsal, football, 5x5, 9x9 and beach soccer.">
 
     <meta name="keywords"
-          content="Alban Shiba, Albanian goalkeeper, Albania futsal, futsal goalkeeper, Tirana goalkeeper, Alban Shiba goalkeeper">
+          content="Alban Shiba, Albanian goalkeeper, Albania futsal, goalkeeper Albania, futsal goalkeeper, Tirana Futsal, Flamurtari Futsal">
 
     <meta name="author" content="Alban Shiba">
 
     <meta property="og:title" content="Alban Shiba | Albanian Goalkeeper">
     <meta property="og:description"
-          content="Albanian goalkeeper from Tirana with experience in futsal, football, 5x5, 9x9 and beach soccer.">
+          content="Official sports profile of Alban Shiba, Albanian goalkeeper from Tirana.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://albanshiba1-dev.github.io/alban-shiba/">
 
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
 
-    <!-- Icons -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     LOADING
-========================= -->
-
-<div class="loader">
-    <div class="loader-logo">AS</div>
+<!-- LOADING -->
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="loader-logo">AS</div>
+        <span>ALBAN SHIBA</span>
+    </div>
 </div>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
+<!-- HEADER -->
 <header class="header" id="header">
 
     <div class="container nav-container">
 
         <a href="#home" class="logo">
-            <span>ALBAN</span>
-            <strong>SHIBA</strong>
+            <span class="logo-mark">AS</span>
+            <span class="logo-name">ALBAN SHIBA</span>
         </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <nav class="nav" id="nav">
 
-            <a href="#home">Home</a>
-            <a href="#profile">Profile</a>
-            <a href="#career">Career</a>
-            <a href="#international">International</a>
-            <a href="#media">Media</a>
-            <a href="#contact">Contact</a>
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#profile" class="nav-link">Profile</a>
+            <a href="#career" class="nav-link">Career</a>
+            <a href="#international" class="nav-link">International</a>
+            <a href="#honours" class="nav-link">Honours</a>
+            <a href="#media" class="nav-link">Media</a>
+            <a href="#contact" class="nav-link">Contact</a>
 
         </nav>
-
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
 
     </div>
 
 </header>
 
 
-<main>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero" id="home">
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-content container">
+    <div class="container hero-container">
 
-        <div class="hero-text">
+        <div class="hero-content">
 
-            <p class="eyebrow">
+            <div class="hero-label">
                 ALBANIAN GOALKEEPER
-            </p>
+            </div>
 
             <h1>
-                ALBAN
+                ALBAN<br>
                 <span>SHIBA</span>
             </h1>
 
@@ -112,55 +101,62 @@
             <div class="hero-buttons">
 
                 <a href="#career" class="btn btn-primary">
-                    <span>VIEW CAREER</span>
-                    <i class="fa-solid fa-arrow-right"></i>
+                    VIEW CAREER
+                    <i class="fas fa-arrow-right"></i>
                 </a>
 
                 <a href="#media" class="btn btn-outline">
-                    <span>WATCH HIGHLIGHTS</span>
-                    <i class="fa-solid fa-play"></i>
+                    WATCH HIGHLIGHTS
+                    <i class="fas fa-play"></i>
                 </a>
 
             </div>
 
         </div>
 
-        <div class="hero-badge">
 
-            <div class="badge-circle">
-                <span>GK</span>
+        <div class="hero-player">
+
+            <div class="hero-image-frame">
+
+                <!--
+                NGARKO KETU FOTON KRYESORE:
+
+                images/profile.jpg
+                -->
+
+                <img src="images/profile.jpg"
+                     alt="Alban Shiba - Albanian Goalkeeper"
+                     onerror="this.style.display='none';">
+
+                <div class="image-placeholder">
+                    <span>ALBAN</span>
+                    <strong>SHIBA</strong>
+                    <small>GOALKEEPER</small>
+                </div>
+
             </div>
-
-            <p>GOALKEEPER</p>
 
         </div>
 
-    </div>
-
-    <div class="hero-scroll">
-        <span>SCROLL</span>
-        <i class="fa-solid fa-arrow-down"></i>
     </div>
 
 </section>
 
 
-<!-- =========================
-     PROFILE
-========================= -->
-
+<!-- PROFILE -->
 <section class="section profile-section" id="profile">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-number">01 / PROFILE</p>
+            <span class="section-number">01</span>
 
-            <h2>
-                PLAYER
-                <span>PROFILE</span>
-            </h2>
+            <div>
+                <span class="section-label">PLAYER PROFILE</span>
+                <h2>ABOUT <span>ALBAN</span></h2>
+            </div>
 
         </div>
 
@@ -169,56 +165,56 @@
 
             <div class="profile-text">
 
-                <p class="intro">
-                    Alban Shiba is an Albanian goalkeeper from Tirana with
-                    sporting experience across multiple football formats.
+                <p class="lead">
+                    Alban Shiba is an Albanian goalkeeper from Tirana
+                    with experience across multiple football formats,
+                    including futsal, football, 5x5, 9x9 and beach soccer.
                 </p>
 
                 <p>
-                    His career includes experience with Albanian futsal,
-                    football, 5x5 and 9x9 teams, as well as participation
-                    in national and international competitions.
+                    His career includes appearances in Albanian futsal
+                    competitions, international tournaments and
+                    national-team environments.
                 </p>
 
                 <p>
-                    His sporting experience also includes international
-                    futsal activities with Albania, UEFA competition
-                    environments, PCU Games Belgium, Socca World Cup
-                    and Beach Soccer.
+                    Official competition records published by the
+                    Albanian Football Federation (FSHF) document Alban
+                    Shiba as a goalkeeper in Albanian competitions.
                 </p>
 
             </div>
 
 
-            <div class="profile-card">
+            <div class="profile-data">
 
-                <div class="profile-row">
-                    <span>Full Name</span>
+                <div class="data-row">
+                    <span>FULL NAME</span>
                     <strong>Alban Shiba</strong>
                 </div>
 
-                <div class="profile-row">
-                    <span>Date of Birth</span>
+                <div class="data-row">
+                    <span>DATE OF BIRTH</span>
                     <strong>30 November 1997</strong>
                 </div>
 
-                <div class="profile-row">
-                    <span>Birthplace</span>
+                <div class="data-row">
+                    <span>BIRTHPLACE</span>
                     <strong>Tirana, Albania</strong>
                 </div>
 
-                <div class="profile-row">
-                    <span>Position</span>
+                <div class="data-row">
+                    <span>POSITION</span>
                     <strong>Goalkeeper</strong>
                 </div>
 
-                <div class="profile-row">
-                    <span>Nationality</span>
+                <div class="data-row">
+                    <span>NATIONALITY</span>
                     <strong>Albanian</strong>
                 </div>
 
-                <div class="profile-row">
-                    <span>Sports</span>
+                <div class="data-row">
+                    <span>SPORTS</span>
                     <strong>Futsal · Football · 5x5 · 9x9 · Beach Soccer</strong>
                 </div>
 
@@ -226,35 +222,34 @@
 
         </div>
 
+    </div>
 
-        <!-- STATS -->
+</section>
 
-        <div class="stats-grid">
 
-            <div class="stat-box">
-                <strong class="counter" data-target="12">0</strong>
-                <span>YEARS+</span>
-                <p>SPORTING EXPERIENCE</p>
-            </div>
+<!-- STATS -->
+<section class="stats-section">
 
-            <div class="stat-box">
-                <strong class="counter" data-target="12">0</strong>
-                <span>CLUBS / TEAMS</span>
-                <p>CAREER EXPERIENCE</p>
-            </div>
+    <div class="container stats-grid">
 
-            <div class="stat-box">
-                <strong class="counter" data-target="5">0</strong>
-                <span>FORMATS</span>
-                <p>FOOTBALL DISCIPLINES</p>
-            </div>
+        <div class="stat-box">
+            <strong class="counter" data-target="12">0</strong>
+            <span>YEARS OF EXPERIENCE</span>
+        </div>
 
-            <div class="stat-box">
-                <strong class="counter" data-target="5">0</strong>
-                <span>INTERNATIONAL</span>
-                <p>COMPETITION ENVIRONMENTS</p>
-            </div>
+        <div class="stat-box">
+            <strong class="counter" data-target="12">0</strong>
+            <span>TEAMS & CLUBS</span>
+        </div>
 
+        <div class="stat-box">
+            <strong class="counter" data-target="5">0</strong>
+            <span>SPORT FORMATS</span>
+        </div>
+
+        <div class="stat-box">
+            <strong class="counter" data-target="3">0</strong>
+            <span>NATIONAL CUPS</span>
         </div>
 
     </div>
@@ -262,192 +257,285 @@
 </section>
 
 
-<!-- =========================
-     CAREER
-========================= -->
-
-<section class="section dark-section" id="career">
+<!-- CAREER -->
+<section class="section career-section" id="career">
 
     <div class="container">
 
-        <div class="section-heading light">
+        <div class="section-heading">
 
-            <p class="section-number">02 / CAREER</p>
+            <span class="section-number">02</span>
 
-            <h2>
-                CLUB
-                <span>HISTORY</span>
-            </h2>
+            <div>
+                <span class="section-label">PLAYER CAREER</span>
+                <h2>CAREER <span>TIMELINE</span></h2>
+            </div>
 
         </div>
 
 
-        <div class="timeline">
+        <div class="career-timeline">
 
-            <div class="timeline-item">
 
-                <div class="timeline-year">2025 — 2026</div>
+            <!-- KEVITAN -->
+            <div class="career-item">
 
-                <div class="timeline-content">
-                    <p>BEACH SOCCER</p>
-                    <h3>FC DYMBEDHJETA</h3>
-                    <span>Goalkeeper</span>
+                <div class="career-year">
+                    2014<br>2015
                 </div>
 
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2025</div>
-
-                <div class="timeline-content">
-                    <p>SOCCA WORLD CUP</p>
-                    <h3>FC DYMBEDHJETA</h3>
-                    <span>Goalkeeper</span>
+                <div class="career-logo">
+                    <img src="images/kevitan.png"
+                         alt="Kevitan"
+                         onerror="this.style.display='none';">
+                    <span>K</span>
                 </div>
 
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2024 — 2026</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>FLAMURTARI FUTSAL</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2024 — 2026</div>
-
-                <div class="timeline-content">
-                    <p>5x5</p>
-                    <h3>FJT AUTO</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2023 — 2024</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>PARTIZANI FUTSAL</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2022 — 2024</div>
-
-                <div class="timeline-content">
-                    <p>9x9</p>
-                    <h3>FC DAJTI</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2022 — 2023</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>FUTSAL KLUB TIRANA</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2020 — 2021</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>BIO JU</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2018 — 2020</div>
-
-                <div class="timeline-content">
-                    <p>5x5</p>
-                    <h3>TIRANA 5x5</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2018 — 2019</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>KS ALI DEMI</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2016 — 2018</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>FUTSAL KLUB TIRANA</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2015 — 2016</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
-                    <h3>ECCOBET</h3>
-                    <span>Goalkeeper</span>
-                </div>
-
-            </div>
-
-
-            <div class="timeline-item">
-
-                <div class="timeline-year">2014 — 2015</div>
-
-                <div class="timeline-content">
-                    <p>FUTSAL</p>
+                <div class="career-info">
                     <h3>KEVITAN</h3>
-                    <span>Goalkeeper</span>
+                    <span>Football / Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- ECCOBET -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2015<br>2016
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/eccobet.png"
+                         alt="Eccobet"
+                         onerror="this.style.display='none';">
+                    <span>E</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>ECCOBET</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- TIRANA -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2016<br>2018
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/tirana-futsal.png"
+                         alt="Tirana Futsal"
+                         onerror="this.style.display='none';">
+                    <span>TF</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FUTSAL KLUB TIRANA</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- ALI DEMI -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2018<br>2019
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/ali-demi.png"
+                         alt="KS Ali Demi"
+                         onerror="this.style.display='none';">
+                    <span>AD</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>KS ALI DEMI</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- TIRANA 5X5 -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2018<br>2020
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/tirana-5x5.png"
+                         alt="Tirana 5x5"
+                         onerror="this.style.display='none';">
+                    <span>5X5</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>TIRANA 5X5</h3>
+                    <span>5x5</span>
+                </div>
+
+            </div>
+
+
+            <!-- BIO JU -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2020<br>2021
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/bio-ju.png"
+                         alt="Bio Ju"
+                         onerror="this.style.display='none';">
+                    <span>BJ</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>BIO JU</h3>
+                    <span>Football / Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- TIRANA -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2022<br>2023
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/tirana-futsal.png"
+                         alt="Tirana Futsal"
+                         onerror="this.style.display='none';">
+                    <span>TF</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FUTSAL KLUB TIRANA</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- DAJTI -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2022<br>2024
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/fc-dajti.png"
+                         alt="FC Dajti"
+                         onerror="this.style.display='none';">
+                    <span>D9</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FC DAJTI 9x9</h3>
+                    <span>9x9</span>
+                </div>
+
+            </div>
+
+
+            <!-- PARTIZANI -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2023<br>2024
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/partizani-futsal.png"
+                         alt="Partizani Futsal"
+                         onerror="this.style.display='none';">
+                    <span>PF</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>PARTIZANI FUTSAL</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- FLAMURTARI -->
+            <div class="career-item featured">
+
+                <div class="career-year">
+                    2024<br>2026
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/flamurtari-futsal.png"
+                         alt="Flamurtari Futsal"
+                         onerror="this.style.display='none';">
+                    <span>FF</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FLAMURTARI FUTSAL</h3>
+                    <span>Futsal</span>
+                </div>
+
+            </div>
+
+
+            <!-- FJT AUTO -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2024<br>2026
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/fjt-auto.png"
+                         alt="FJT Auto"
+                         onerror="this.style.display='none';">
+                    <span>FJT</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FJT AUTO</h3>
+                    <span>5x5</span>
+                </div>
+
+            </div>
+
+
+            <!-- DYMBEDHJETA -->
+            <div class="career-item">
+
+                <div class="career-year">
+                    2025
+                </div>
+
+                <div class="career-logo">
+                    <img src="images/dymbedhjeta.png"
+                         alt="FC Dymbedhjeta"
+                         onerror="this.style.display='none';">
+                    <span>12</span>
+                </div>
+
+                <div class="career-info">
+                    <h3>FC DYMBEDHJETA</h3>
+                    <span>Socca / Beach Soccer</span>
                 </div>
 
             </div>
@@ -459,22 +547,19 @@
 </section>
 
 
-<!-- =========================
-     INTERNATIONAL
-========================= -->
-
+<!-- INTERNATIONAL -->
 <section class="section international-section" id="international">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-number">03 / INTERNATIONAL</p>
+            <span class="section-number">03</span>
 
-            <h2>
-                NATIONAL &
-                <span>INTERNATIONAL</span>
-            </h2>
+            <div>
+                <span class="section-label">INTERNATIONAL EXPERIENCE</span>
+                <h2>ON THE <span>INTERNATIONAL STAGE</span></h2>
+            </div>
 
         </div>
 
@@ -484,16 +569,48 @@
 
             <article class="international-card">
 
-                <div class="competition-number">01</div>
+                <div class="card-icon">
+                    <i class="fas fa-flag"></i>
+                </div>
 
-                <div class="competition-tag">AL</div>
+                <span class="card-year">2020–2022</span>
 
-                <p>2020 — 2022</p>
+                <h3>ALBANIA FUTSAL NATIONAL TEAM</h3>
 
-                <h3>ALBANIA FUTSAL<br>NATIONAL TEAM</h3>
+                <p>
+                    International experience with the Albania
+                    Futsal National Team across preparation,
+                    qualifying and international fixtures.
+                </p>
 
-                <span>
-                    International preparation and qualifying activities.
+                <a href="https://fshf.org/garat/?player_id=307742&query=info"
+                   target="_blank"
+                   rel="noopener"
+                   class="card-link">
+                    FSHF PLAYER RECORD
+                    <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </article>
+
+
+            <article class="international-card">
+
+                <div class="card-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+
+                <span class="card-year">2022–2023</span>
+
+                <h3>UEFA FUTSAL COMPETITIONS</h3>
+
+                <p>
+                    Experience with Tirana Futsal in UEFA futsal
+                    competition environments.
+                </p>
+
+                <span class="card-tag">
+                    UEFA FUTSAL
                 </span>
 
             </article>
@@ -501,17 +618,21 @@
 
             <article class="international-card">
 
-                <div class="competition-number">02</div>
+                <div class="card-icon">
+                    <i class="fas fa-globe-europe"></i>
+                </div>
 
-                <div class="competition-tag">UEFA</div>
+                <span class="card-year">2024</span>
 
-                <p>2022</p>
+                <h3>PCU GAMES — BELGIUM</h3>
 
-                <h3>UEFA FUTSAL<br>COMPETITIONS</h3>
+                <p>
+                    International university sports experience
+                    representing Kolegji Universitar i Biznesit.
+                </p>
 
-                <span>
-                    International futsal competition environment
-                    with Futsal Klub Tirana.
+                <span class="card-tag">
+                    BELGIUM
                 </span>
 
             </article>
@@ -519,17 +640,21 @@
 
             <article class="international-card">
 
-                <div class="competition-number">03</div>
+                <div class="card-icon">
+                    <i class="fas fa-earth-europe"></i>
+                </div>
 
-                <div class="competition-tag">PCU</div>
+                <span class="card-year">2025</span>
 
-                <p>2024</p>
+                <h3>SOCCA WORLD CUP</h3>
 
-                <h3>PCU GAMES<br>BELGIUM</h3>
+                <p>
+                    International tournament experience with
+                    FC Dymbedhjeta.
+                </p>
 
-                <span>
-                    International university sports competition
-                    experience in Belgium.
+                <span class="card-tag">
+                    INTERNATIONAL
                 </span>
 
             </article>
@@ -537,39 +662,24 @@
 
             <article class="international-card">
 
-                <div class="competition-number">04</div>
+                <div class="card-icon">
+                    <i class="fas fa-umbrella-beach"></i>
+                </div>
 
-                <div class="competition-tag">SOC</div>
+                <span class="card-year">2025</span>
 
-                <p>2025</p>
+                <h3>BEACH SOCCER</h3>
 
-                <h3>SOCCA<br>WORLD CUP</h3>
+                <p>
+                    Beach soccer competition experience with
+                    FC Dymbedhjeta.
+                </p>
 
-                <span>
-                    International tournament experience
-                    with FC Dymbedhjeta.
+                <span class="card-tag">
+                    BEACH SOCCER
                 </span>
 
             </article>
-
-
-            <article class="international-card">
-
-                <div class="competition-number">05</div>
-
-                <div class="competition-tag">BS</div>
-
-                <p>2025 — 2026</p>
-
-                <h3>BEACH<br>SOCCER</h3>
-
-                <span>
-                    Beach soccer competition experience
-                    with FC Dymbedhjeta.
-                </span>
-
-            </article>
-
 
         </div>
 
@@ -578,22 +688,130 @@
 </section>
 
 
-<!-- =========================
-     MEDIA
-========================= -->
-
-<section class="section dark-section media-section" id="media">
+<!-- HONOURS -->
+<section class="section honours-section" id="honours">
 
     <div class="container">
 
-        <div class="section-heading light">
+        <div class="section-heading">
 
-            <p class="section-number">04 / MEDIA</p>
+            <span class="section-number">04</span>
 
-            <h2>
-                MATCH
-                <span>HIGHLIGHTS</span>
-            </h2>
+            <div>
+                <span class="section-label">ACHIEVEMENTS</span>
+                <h2>HONOURS & <span>TROPHIES</span></h2>
+            </div>
+
+        </div>
+
+
+        <div class="honours-grid">
+
+
+            <div class="honour-card">
+
+                <div class="honour-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+
+                <div>
+                    <span>2023</span>
+                    <h3>ALBANIAN FUTSAL CUP</h3>
+                    <p>Tirana Futsal</p>
+                </div>
+
+            </div>
+
+
+            <div class="honour-card">
+
+                <div class="honour-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+
+                <div>
+                    <span>2024</span>
+                    <h3>ALBANIAN FUTSAL CUP</h3>
+                    <p>Flamurtari Futsal</p>
+                </div>
+
+            </div>
+
+
+            <div class="honour-card">
+
+                <div class="honour-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+
+                <div>
+                    <span>2025</span>
+                    <h3>ALBANIAN FUTSAL CUP</h3>
+                    <p>Flamurtari Futsal</p>
+                </div>
+
+            </div>
+
+
+            <div class="honour-card">
+
+                <div class="honour-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+
+                <div>
+                    <span>2025</span>
+                    <h3>FJT AUTO</h3>
+                    <p>5x5 — Durrës</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="official-source">
+
+            <i class="fas fa-circle-check"></i>
+
+            <div>
+
+                <strong>OFFICIAL COMPETITION RECORD</strong>
+
+                <p>
+                    Player and competition information can be verified
+                    through the official FSHF competition database.
+                </p>
+
+            </div>
+
+            <a href="https://fshf.org/garat/?player_id=307742&query=info"
+               target="_blank"
+               rel="noopener">
+                VIEW FSHF
+                <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MEDIA -->
+<section class="section media-section" id="media">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-number">05</span>
+
+            <div>
+                <span class="section-label">MATCH FOOTAGE</span>
+                <h2>MEDIA & <span>HIGHLIGHTS</span></h2>
+            </div>
 
         </div>
 
@@ -601,122 +819,84 @@
         <div class="video-grid">
 
 
-            <!-- VIDEO 1 -->
-
-            <a class="video-card"
-               href="https://youtu.be/WKl0x6hSkSk"
+            <a href="https://youtu.be/WKl0x6hSkSk"
                target="_blank"
-               rel="noopener">
+               rel="noopener"
+               class="video-card">
 
-                <div class="video-image">
-
+                <div class="video-thumbnail">
                     <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
+                        <i class="fas fa-play"></i>
                     </div>
-
-                    <div class="video-label">
-                        GOALKEEPER HIGHLIGHTS
-                    </div>
-
                 </div>
 
                 <div class="video-info">
-                    <span>VIDEO 01</span>
-                    <h3>GOALKEEPER SAVES & HIGHLIGHTS</h3>
-                </div>
-
-            </a>
-
-
-            <!-- VIDEO 2 -->
-
-            <a class="video-card"
-               href="https://youtu.be/NHPJLPSPkKs"
-               target="_blank"
-               rel="noopener">
-
-                <div class="video-image">
-
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-
-                    <div class="video-label">
-                        MATCH FOOTAGE
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-                    <span>VIDEO 02</span>
-                    <h3>MATCH SAVES & ACTION</h3>
-                </div>
-
-            </a>
-
-
-            <!-- VIDEO 3 -->
-
-            <a class="video-card"
-               href="https://youtu.be/Tae05sPYrqk"
-               target="_blank"
-               rel="noopener">
-
-                <div class="video-image">
-
-                    <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
-                    </div>
-
-                    <div class="video-label">
-                        GOALKEEPER
-                    </div>
-
-                </div>
-
-                <div class="video-info">
-                    <span>VIDEO 03</span>
+                    <span>YOUTUBE</span>
                     <h3>GOALKEEPER HIGHLIGHTS</h3>
+                    <i class="fas fa-arrow-right"></i>
                 </div>
 
             </a>
 
 
-            <!-- VIDEO 4 -->
-
-            <a class="video-card"
-               href="https://youtu.be/1PX9Af5PM5M"
+            <a href="https://youtu.be/NHPJLPSPkKs"
                target="_blank"
-               rel="noopener">
+               rel="noopener"
+               class="video-card">
 
-                <div class="video-image">
-
+                <div class="video-thumbnail">
                     <div class="play-button">
-                        <i class="fa-solid fa-play"></i>
+                        <i class="fas fa-play"></i>
                     </div>
-
-                    <div class="video-label">
-                        MATCH FOOTAGE
-                    </div>
-
                 </div>
 
                 <div class="video-info">
-                    <span>VIDEO 04</span>
-                    <h3>MATCH HIGHLIGHTS</h3>
+                    <span>YOUTUBE</span>
+                    <h3>GOALKEEPER SAVES</h3>
+                    <i class="fas fa-arrow-right"></i>
                 </div>
 
             </a>
 
-        </div>
+
+            <a href="https://youtu.be/Tae05sPYrqk"
+               target="_blank"
+               rel="noopener"
+               class="video-card">
+
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="video-info">
+                    <span>YOUTUBE</span>
+                    <h3>MATCH HIGHLIGHTS</h3>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+            </a>
 
 
-        <div class="media-note">
+            <a href="https://youtu.be/1PX9Af5PM5M"
+               target="_blank"
+               rel="noopener"
+               class="video-card">
 
-            <p>
-                More goalkeeper highlights, match footage and
-                competition media will be added.
-            </p>
+                <div class="video-thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+
+                <div class="video-info">
+                    <span>YOUTUBE</span>
+                    <h3>ALBAN SHIBA</h3>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+
+            </a>
 
         </div>
 
@@ -725,39 +905,72 @@
 </section>
 
 
-<!-- =========================
-     GALLERY PLACEHOLDER
-========================= -->
-
+<!-- GALLERY -->
 <section class="section gallery-section">
 
     <div class="container">
 
         <div class="section-heading">
 
-            <p class="section-number">05 / GALLERY</p>
+            <span class="section-number">06</span>
 
-            <h2>
-                MATCH
-                <span>GALLERY</span>
-            </h2>
+            <div>
+                <span class="section-label">PHOTO ARCHIVE</span>
+                <h2>PLAYER <span>GALLERY</span></h2>
+            </div>
 
         </div>
 
 
-        <div class="gallery-placeholder">
+        <div class="gallery-grid">
 
-            <div class="gallery-icon">
-                <i class="fa-solid fa-camera"></i>
+
+            <div class="gallery-item">
+                <img src="images/goalkeeper-1.jpg"
+                     alt="Alban Shiba goalkeeper"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>01</span>
             </div>
 
-            <h3>COMPETITION PHOTOS</h3>
 
-            <p>
-                Match photos, national team appearances,
-                international tournaments and goalkeeper action
-                will be added here.
-            </p>
+            <div class="gallery-item">
+                <img src="images/goalkeeper-2.jpg"
+                     alt="Alban Shiba futsal"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>02</span>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/national-team.jpg"
+                     alt="Alban Shiba Albania Futsal"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>03</span>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/flamurtari.jpg"
+                     alt="Alban Shiba Flamurtari Futsal"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>04</span>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/socca-world-cup.jpg"
+                     alt="Alban Shiba Socca World Cup"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>05</span>
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/beach-soccer.jpg"
+                     alt="Alban Shiba Beach Soccer"
+                     onerror="this.parentElement.classList.add('empty');">
+                <span>06</span>
+            </div>
 
         </div>
 
@@ -766,57 +979,122 @@
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="contact-section" id="contact">
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
 
     <div class="container">
 
-        <div class="contact-grid">
+        <div class="section-heading">
+
+            <span class="section-number">07</span>
 
             <div>
+                <span class="section-label">GET IN TOUCH</span>
+                <h2>CONTACT <span>ALBAN</span></h2>
+            </div>
 
-                <p class="section-number">06 / CONTACT</p>
+        </div>
 
-                <h2>
-                    LET'S
-                    <span>CONNECT</span>
-                </h2>
 
-                <p class="contact-description">
+        <div class="contact-grid">
+
+
+            <div class="contact-intro">
+
+                <h3>
+                    FOR FOOTBALL,<br>
+                    FUTSAL & SPORTS<br>
+                    <span>OPPORTUNITIES.</span>
+                </h3>
+
+                <p>
                     For professional, sporting, media or collaboration
-                    inquiries.
+                    opportunities, contact Alban directly.
                 </p>
 
             </div>
 
 
-            <div class="contact-links">
+            <div class="contact-details">
 
-                <a href="mailto:contact@albanshiba.com">
 
-                    <span>
-                        <i class="fa-solid fa-envelope"></i>
-                        EMAIL
-                    </span>
+                <a href="mailto:albanshiba1@gmail.com"
+                   class="contact-item">
 
-                    <strong>contact@albanshiba.com</strong>
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+
+                    <div>
+                        <span>EMAIL</span>
+                        <strong>albanshiba1@gmail.com</strong>
+                    </div>
 
                 </a>
 
 
-                <a href="https://www.youtube.com/"
+                <a href="tel:+355692725664"
+                   class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+
+                    <div>
+                        <span>PHONE</span>
+                        <strong>+355 69 272 5664</strong>
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.instagram.com/albanshiba/"
                    target="_blank"
-                   rel="noopener">
+                   rel="noopener"
+                   class="contact-item">
 
-                    <span>
-                        <i class="fa-brands fa-youtube"></i>
-                        YOUTUBE
-                    </span>
+                    <div class="contact-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
 
-                    <strong>Alban Shiba</strong>
+                    <div>
+                        <span>INSTAGRAM</span>
+                        <strong>@albanshiba</strong>
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.youtube.com/@albanshiba48"
+                   target="_blank"
+                   rel="noopener"
+                   class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+
+                    <div>
+                        <span>YOUTUBE</span>
+                        <strong>@albanshiba48</strong>
+                    </div>
+
+                </a>
+
+
+                <a href="https://www.tiktok.com/@alban.shiba"
+                   target="_blank"
+                   rel="noopener"
+                   class="contact-item">
+
+                    <div class="contact-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+
+                    <div>
+                        <span>TIKTOK</span>
+                        <strong>@alban.shiba</strong>
+                    </div>
 
                 </a>
 
@@ -829,28 +1107,70 @@
 </section>
 
 
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
 
     <div class="container footer-container">
 
-        <div class="footer-logo">
-            ALBAN <strong>SHIBA</strong>
+        <div class="footer-brand">
+
+            <div class="footer-logo">AS</div>
+
+            <div>
+                <strong>ALBAN SHIBA</strong>
+                <span>ALBANIAN GOALKEEPER</span>
+            </div>
+
         </div>
 
-        <p>
-            Albanian Goalkeeper · Tirana, Albania
-        </p>
 
-        <span>
-            © 2026 Alban Shiba. All rights reserved.
-        </span>
+        <div class="footer-socials">
+
+            <a href="https://www.instagram.com/albanshiba/"
+               target="_blank"
+               rel="noopener"
+               aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@albanshiba48"
+               target="_blank"
+               rel="noopener"
+               aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@alban.shiba"
+               target="_blank"
+               rel="noopener"
+               aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+
+            <a href="mailto:albanshiba1@gmail.com"
+               aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <span>
+                © <span id="currentYear"></span> Alban Shiba.
+                All rights reserved.
+            </span>
+
+            <span>
+                Tirana, Albania
+            </span>
+
+        </div>
 
     </div>
 
@@ -858,9 +1178,8 @@
 
 
 <!-- BACK TO TOP -->
-
-<button class="back-top" id="backTop">
-    <i class="fa-solid fa-arrow-up"></i>
+<button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
 </button>
 
 
