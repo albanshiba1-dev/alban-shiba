@@ -38,7 +38,15 @@ button { font-family: inherit; }
 .btn-primary { background:var(--accent); color:#fff; }
 .btn-primary:hover,.btn-outline:hover { background:#fff; color:#000; transform:translateY(-3px); }
 .btn-outline { border:1px solid rgba(255,255,255,.5); color:#fff; }
-.hero-photo { display:flex; justify-content:center; }
+.hero-photo img {
+    width: 400px;
+    height: 560px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 4px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
 .photo-placeholder { width:400px; height:560px; border:1px solid rgba(255,255,255,.15); background:linear-gradient(145deg,#181818,#090909); display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; }
 .photo-placeholder::before,.photo-placeholder::after { content:""; position:absolute; width:80px; height:80px; }
 .photo-placeholder::before { top:20px; right:20px; border-top:2px solid var(--accent); border-right:2px solid var(--accent); }
