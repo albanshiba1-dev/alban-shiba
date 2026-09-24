@@ -1,89 +1,314 @@
-/* ALBAN SHIBA - MAIN JAVASCRIPT */
-const menuToggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
-const navLinks = document.querySelectorAll(".nav a");
+/* =========================================
+   ALBAN SHIBA WEBSITE
+   JAVASCRIPT
+========================================= */
 
-if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-        const isActive = nav.classList.toggle("active");
-        menuToggle.setAttribute("aria-expanded", String(isActive));
-    });
-}
 
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-        if (nav) nav.classList.remove("active");
-        if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
-    });
+/* =========================================
+   LOADER
+========================================= */
+
+window.addEventListener("load", () => {
+
+    const loader = document.querySelector(".loader");
+
+    setTimeout(() => {
+
+        loader.classList.add("hidden");
+
+    }, 500);
+
 });
+
+
+/* =========================================
+   HEADER SCROLL
+========================================= */
 
 const header = document.getElementById("header");
+
 window.addEventListener("scroll", () => {
-    if (header) header.classList.toggle("scrolled", window.scrollY > 50);
+
+    if (window.scrollY > 50) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
 });
 
-const currentYear = document.getElementById("currentYear");
-if (currentYear) currentYear.textContent = new Date().getFullYear();
 
-const statNumbers = document.querySelectorAll(".stat-box strong");
-let statsAnimated = false;
+/* =========================================
+   MOBILE MENU
+========================================= */
 
-function animateStats() {
-    if (statsAnimated) return;
-    statsAnimated = true;
-    statNumbers.forEach((number) => {
-        const target = Number.parseInt(number.dataset.target || "0", 10);
-        const duration = 1200;
-        const startTime = performance.now();
-        function update(timestamp) {
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            number.textContent = String(Math.floor(progress * target));
-            if (progress < 1) requestAnimationFrame(update);
-            else number.textContent = String(target);
-        }
-        requestAnimationFrame(update);
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("nav");
+
+menuToggle.addEventListener("click", () => {
+
+    nav.classList.toggle("active");
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll(".nav a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        nav.classList.remove("active");
+
     });
-}
 
-const statsSection = document.querySelector(".achievements-section");
-if (statsSection && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-            animateStats();
-            observer.disconnect();
-        }
-    }, { threshold: 0.3 });
-    observer.observe(statsSection);
-} else {
-    animateStats();
-}
+});
 
-const revealElements = document.querySelectorAll(".international-card, .media-card, .timeline-item, .detail-item");
-if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
+
+/* =========================================
+   COUNTERS
+========================================= */
+
+const counters = document.querySelectorAll(".counter");
+
+const counterObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            const counter = entry.target;
+
+            const target = Number(
+                counter.getAttribute("data-target")
+            );
+
+            let current = 0;
+
+            const duration = 1200;
+
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+
+                const elapsed = currentTime - startTime;
+
+                const progress = Math.min(
+                    elapsed / duration,
+                    1
+                );
+
+                current = Math.floor(
+                    progress * target
+                );
+
+                counter.textContent = current;
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(updateCounter);
+
+                } else {
+
+                    counter.textContent = target;
+
+                }
+
             }
+
+            requestAnimationFrame(updateCounter);
+
+            counterObserver.unobserve(counter);
+
         });
-    }, { threshold: 0.1 });
-    revealElements.forEach((element) => {
-        element.classList.add("reveal");
-        revealObserver.observe(element);
+
+    },
+
+    {
+        threshold: 0.5
+    }
+
+);
+
+counters.forEach(counter => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements = document.querySelectorAll(
+
+    ".section-heading, " +
+    ".profile-text, " +
+    ".profile-card, " +
+    ".stat-box, " +
+    ".timeline-item, " +
+    ".international-card, " +
+    ".video-card, " +
+    ".gallery-placeholder, " +
+    ".contact-grid"
+
+);
+
+revealElements.forEach(element => {
+
+    element.style.opacity = "0";
+
+    element.style.transform = "translateY(30px)";
+
+    element.style.transition =
+        "opacity 0.8s ease, transform 0.8s ease";
+
+});
+
+
+const revealObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            entry.target.style.opacity = "1";
+
+            entry.target.style.transform =
+                "translateY(0)";
+
+            revealObserver.unobserve(entry.target);
+
+        });
+
+    },
+
+    {
+        threshold: 0.15
+    }
+
+);
+
+
+revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+
+const backTop = document.getElementById("backTop");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 600) {
+
+        backTop.classList.add("visible");
+
+    } else {
+
+        backTop.classList.remove("visible");
+
+    }
+
+});
+
+
+backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
     });
-}
+
+});
+
+
+/* =========================================
+   ACTIVE NAVIGATION
+========================================= */
 
 const sections = document.querySelectorAll("section[id]");
-window.addEventListener("scroll", () => {
-    let currentSection = "";
-    sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + section.offsetHeight) {
-            currentSection = section.getAttribute("id") || "";
-        }
+
+const navLinks = document.querySelectorAll(".nav a");
+
+const activeObserver = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            navLinks.forEach(link => {
+
+                link.classList.remove("active");
+
+            });
+
+            const activeLink =
+                document.querySelector(
+                    `.nav a[href="#${entry.target.id}"]`
+                );
+
+            if (activeLink) {
+
+                activeLink.classList.add("active");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold: 0.4
+    }
+
+);
+
+
+sections.forEach(section => {
+
+    activeObserver.observe(section);
+
+});
+
+
+/* =========================================
+   VIDEO HOVER EFFECT
+========================================= */
+
+const videoCards = document.querySelectorAll(".video-card");
+
+videoCards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform = "translateY(-8px)";
+
     });
-    navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${currentSection}`);
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "translateY(0)";
+
     });
+
 });
